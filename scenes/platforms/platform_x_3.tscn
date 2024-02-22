@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfaq0y5nuxhg"]
+
+[ext_resource type="PackedScene" uid="uid://doqvmh5mco84w" path="res://scenes/platforms/platform.tscn" id="1_a0ir6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p2vb"]
+size = Vector2(180, 60)
+
+[node name="PlatformX3" instance=ExtResource("1_a0ir6")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_0p2vb")
+
+[node name="PlatformTexture" parent="." index="1"]
+offset_left = -90.0
+offset_right = -72.0

@@ -1,0 +1,306 @@
+[gd_scene load_steps=17 format=3 uid="uid://8bg4myfiwqms"]
+
+[ext_resource type="PackedScene" uid="uid://3moengqmkc0t" path="res://scenes/levels/level.tscn" id="1_uuih6"]
+[ext_resource type="Texture2D" uid="uid://be1gb1ldr7cw8" path="res://graphics/square.png" id="2_cyx3d"]
+[ext_resource type="PackedScene" uid="uid://jyh5apkp61cd" path="res://scenes/interactions/moving_platform.tscn" id="3_bskoc"]
+[ext_resource type="PackedScene" uid="uid://cg1shbf0mgcp4" path="res://scenes/interactions/rotating_platform.tscn" id="4_qpy6e"]
+[ext_resource type="PackedScene" uid="uid://b3fifv4hwe78h" path="res://scenes/zones/kill_zone.tscn" id="6_lctr1"]
+[ext_resource type="Script" path="res://scenes/interactions/rotating_platform.gd" id="6_u7hq6"]
+[ext_resource type="PackedScene" uid="uid://bb5vecrggom70" path="res://scenes/objects/control_point.tscn" id="7_d1odd"]
+[ext_resource type="PackedScene" uid="uid://b42qhgguoymh2" path="res://scenes/items/chance_item.tscn" id="8_4rahl"]
+[ext_resource type="PackedScene" uid="uid://dllu2yksgyyk1" path="res://scenes/items/double_jump_item.tscn" id="8_qhx0h"]
+[ext_resource type="PackedScene" uid="uid://cmd6gv8hv25ix" path="res://scenes/zones/speed_zone.tscn" id="10_3cola"]
+[ext_resource type="PackedScene" uid="uid://bxbo4diguj7te" path="res://scenes/zones/jump_zone.tscn" id="11_wcx15"]
+[ext_resource type="PackedScene" uid="uid://d0q3lx58v373r" path="res://scenes/zones/portal_zone.tscn" id="12_4cbil"]
+[ext_resource type="PackedScene" uid="uid://cqhak16rg8p3f" path="res://scenes/zones/phantom_zone.tscn" id="13_e6q6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb31v"]
+size = Vector2(551, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w207i"]
+size = Vector2(130, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poy87"]
+size = Vector2(130, 60)
+
+[node name="Level1" instance=ExtResource("1_uuih6")]
+
+[node name="Platform" type="StaticBody2D" parent="StaticPlatforms" index="0"]
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticPlatforms/Platform" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -274.0
+offset_top = 49.0
+offset_right = -219.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/Platform" index="1"]
+position = Vector2(1.5, 78)
+shape = SubResource("RectangleShape2D_mb31v")
+
+[node name="Platform2" type="StaticBody2D" parent="StaticPlatforms" index="1"]
+position = Vector2(624, 0)
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticPlatforms/Platform2" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -274.0
+offset_top = 49.0
+offset_right = -219.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/Platform2" index="1"]
+position = Vector2(1.5, 78)
+shape = SubResource("RectangleShape2D_mb31v")
+
+[node name="Platform3" type="StaticBody2D" parent="StaticPlatforms" index="2"]
+position = Vector2(550, 257)
+rotation = -1.5708
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticPlatforms/Platform3" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/Platform3" index="1"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_w207i")
+
+[node name="Platform4" type="StaticBody2D" parent="StaticPlatforms" index="3"]
+position = Vector2(1081, -4)
+rotation = -3.14159
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticPlatforms/Platform4" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/Platform4" index="1"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_w207i")
+
+[node name="Platform5" type="StaticBody2D" parent="StaticPlatforms" index="4"]
+position = Vector2(-246, 231)
+rotation = -2.35619
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticPlatforms/Platform5" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPlatforms/Platform5" index="1"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_w207i")
+
+[node name="MovingPlatform" parent="DinamicPlatforms" index="0" node_paths=PackedStringArray("platform", "movement_markers") instance=ExtResource("3_bskoc")]
+position = Vector2(325, -179)
+rotation = -3.14159
+can_rotate = false
+moving_time = 2.0
+platform = NodePath("Platform5")
+movement_markers = NodePath("Markers")
+
+[node name="Platform5" type="StaticBody2D" parent="DinamicPlatforms/MovingPlatform" index="0"]
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DinamicPlatforms/MovingPlatform/Platform5" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinamicPlatforms/MovingPlatform/Platform5" index="1"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_poy87")
+
+[node name="Markers" type="Node2D" parent="DinamicPlatforms/MovingPlatform" index="1"]
+
+[node name="Marker2D" type="Marker2D" parent="DinamicPlatforms/MovingPlatform/Markers" index="0"]
+position = Vector2(-216, -23.9994)
+
+[node name="Marker2D2" type="Marker2D" parent="DinamicPlatforms/MovingPlatform/Markers" index="1"]
+position = Vector2(227, 104.999)
+
+[node name="Marker2D3" type="Marker2D" parent="DinamicPlatforms/MovingPlatform/Markers" index="2"]
+position = Vector2(-208.999, 242.001)
+
+[node name="RotationPlatform" parent="DinamicPlatforms" index="1" instance=ExtResource("4_qpy6e")]
+position = Vector2(836, -286)
+rotation_velocity = 2.0
+
+[node name="Platform6" type="StaticBody2D" parent="DinamicPlatforms/RotationPlatform" index="0"]
+position = Vector2(3, -1)
+rotation = 2.87979
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DinamicPlatforms/RotationPlatform/Platform6" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.3577
+offset_top = -30.6572
+offset_right = -51.3577
+offset_bottom = -24.6572
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinamicPlatforms/RotationPlatform/Platform6" index="1"]
+position = Vector2(0.642242, -0.657188)
+shape = SubResource("RectangleShape2D_poy87")
+
+[node name="Platform7" type="StaticBody2D" parent="DinamicPlatforms/RotationPlatform" index="1"]
+position = Vector2(-7, -34)
+rotation = 4.45059
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DinamicPlatforms/RotationPlatform/Platform7" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.3577
+offset_top = -30.6572
+offset_right = -51.3577
+offset_bottom = -24.6572
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinamicPlatforms/RotationPlatform/Platform7" index="1"]
+position = Vector2(0.642242, -0.657188)
+shape = SubResource("RectangleShape2D_poy87")
+
+[node name="RotatingPlatform" parent="DinamicPlatforms" index="2" instance=ExtResource("4_qpy6e")]
+position = Vector2(-314, -132)
+
+[node name="Platform6" type="StaticBody2D" parent="DinamicPlatforms/RotatingPlatform" index="0"]
+position = Vector2(215, 0)
+rotation = -3.14159
+collision_layer = 2
+script = ExtResource("6_u7hq6")
+rotation_velocity = -1.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DinamicPlatforms/RotatingPlatform/Platform6" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinamicPlatforms/RotatingPlatform/Platform6" index="1"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_poy87")
+
+[node name="KillZone" parent="DinamicPlatforms/RotatingPlatform/Platform6" index="2" instance=ExtResource("6_lctr1")]
+position = Vector2(0.999894, -41)
+rotation = 3.14159
+scale = Vector2(2, 0.3)
+
+[node name="Platform7" type="StaticBody2D" parent="DinamicPlatforms/RotatingPlatform" index="1"]
+position = Vector2(-185, -3)
+rotation = -3.14159
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DinamicPlatforms/RotatingPlatform/Platform7" index="0"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_cyx3d")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DinamicPlatforms/RotatingPlatform/Platform7" index="1"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_poy87")
+
+[node name="ControlPoint3" parent="ControlPoints" index="1" instance=ExtResource("7_d1odd")]
+position = Vector2(863, -163)
+
+[node name="DoubleJumpItem" parent="ItemsManager" index="0" instance=ExtResource("8_qhx0h")]
+position = Vector2(-289, -427)
+collision_layer = 1
+
+[node name="DoubleJumpItem2" parent="ItemsManager" index="1" instance=ExtResource("8_qhx0h")]
+position = Vector2(625, -77)
+collision_layer = 1
+
+[node name="ChanceItem" parent="ItemsManager" index="2" instance=ExtResource("8_4rahl")]
+position = Vector2(861, -180)
+collision_layer = 1
+
+[node name="WinZone" parent="Zones" index="0"]
+position = Vector2(829, -481)
+
+[node name="SpeedZone" parent="Zones" index="1" instance=ExtResource("10_3cola")]
+position = Vector2(40, -390)
+scale = Vector2(3, 1)
+
+[node name="JumpZone" parent="Zones" index="2" instance=ExtResource("11_wcx15")]
+position = Vector2(-68, 8)
+
+[node name="PortalZone" parent="Zones" index="3" node_paths=PackedStringArray("teleport_to") instance=ExtResource("12_4cbil")]
+position = Vector2(-479, -367)
+teleport_to = NodePath("../../ControlPoints/ControlPoint3")
+
+[node name="PhantomZone" parent="Zones" index="4" instance=ExtResource("13_e6q6k")]
+position = Vector2(-445, 32)

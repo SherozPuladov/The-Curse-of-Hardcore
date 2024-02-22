@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb5vecrggom70"]
+
+[ext_resource type="Script" path="res://scenes/objects/control_point.gd" id="1_r1wce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vm0yt"]
+radius = 28.0179
+
+[node name="ControlPoint" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_r1wce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vm0yt")
+debug_color = Color(0, 0, 0, 0)
+
+[node name="LeftColorRect" type="ColorRect" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 8.0
+offset_bottom = 13.0
+rotation = 2.35619
+
+[node name="RightColorRect" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 8.0
+rotation = -0.785398
+
+[connection signal="body_entered" from="." to="." method="update_control_point"]

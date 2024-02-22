@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtiy5wvk2dq4o"]
+
+[ext_resource type="PackedScene" uid="uid://3moengqmkc0t" path="res://scenes/levels/level.tscn" id="1_uuih6"]
+[ext_resource type="PackedScene" uid="uid://c6hvemk002jed" path="res://scenes/platforms/platform_x_6.tscn" id="2_rc3tf"]
+[ext_resource type="PackedScene" uid="uid://8j7cq838lhue" path="res://scenes/platforms/platform_x_4.tscn" id="3_uhlu1"]
+[ext_resource type="PackedScene" uid="uid://dfaq0y5nuxhg" path="res://scenes/platforms/platform_x_3.tscn" id="4_ffeds"]
+[ext_resource type="PackedScene" uid="uid://dg85q1mkklvo2" path="res://scenes/platforms/platform_x_1.tscn" id="5_kioic"]
+[ext_resource type="Script" path="res://scenes/interactions/rotating_platform.gd" id="6_u7hq6"]
+[ext_resource type="PackedScene" uid="uid://bb5vecrggom70" path="res://scenes/objects/control_point.tscn" id="7_d1odd"]
+[ext_resource type="PackedScene" uid="uid://b42qhgguoymh2" path="res://scenes/items/chance_item.tscn" id="8_4rahl"]
+
+[node name="Level2" instance=ExtResource("1_uuih6")]
+
+[node name="PlatformX6" parent="StaticPlatforms" index="0" instance=ExtResource("2_rc3tf")]
+position = Vector2(-49, 72)
+
+[node name="PlatformX4" parent="StaticPlatforms" index="1" instance=ExtResource("3_uhlu1")]
+position = Vector2(425, 75)
+
+[node name="PlatformX3" parent="StaticPlatforms" index="2" instance=ExtResource("4_ffeds")]
+position = Vector2(515, 13)
+rotation = -1.57079
+
+[node name="PlatformX1" parent="StaticPlatforms" index="3" instance=ExtResource("5_kioic")]
+position = Vector2(244, -173)
+rotation = -1.57079
+
+[node name="PlatformX2" parent="StaticPlatforms" index="4" instance=ExtResource("5_kioic")]
+position = Vector2(89, -285)
+rotation = -1.57079
+
+[node name="PlatformX5" parent="StaticPlatforms" index="5" instance=ExtResource("5_kioic")]
+position = Vector2(313, -372)
+rotation = -2.35619
+
+[node name="PlatformX7" parent="StaticPlatforms" index="6" instance=ExtResource("5_kioic")]
+position = Vector2(472, -464)
+rotation = -2.35619
+
+[node name="PlatformX8" parent="StaticPlatforms" index="7" instance=ExtResource("3_uhlu1")]
+position = Vector2(1047, -626)
+rotation = -0.785397
+
+[node name="PlatformX9" parent="StaticPlatforms" index="8" instance=ExtResource("3_uhlu1")]
+position = Vector2(1859, -667)
+rotation = -0.785397
+
+[node name="PlatformX10" parent="StaticPlatforms" index="9" instance=ExtResource("3_uhlu1")]
+position = Vector2(3727, -517)
+
+[node name="Wheel" type="Node2D" parent="DinamicPlatforms" index="0"]
+position = Vector2(2602, -511)
+script = ExtResource("6_u7hq6")
+
+[node name="PlatformX1" parent="DinamicPlatforms/Wheel" index="0" instance=ExtResource("5_kioic")]
+position = Vector2(-155, 1)
+
+[node name="PlatformX2" parent="DinamicPlatforms/Wheel" index="1" instance=ExtResource("5_kioic")]
+position = Vector2(173, -9)
+
+[node name="PlatformX3" parent="DinamicPlatforms" index="1" instance=ExtResource("4_ffeds")]
+position = Vector2(2944, -518)
+script = ExtResource("6_u7hq6")
+
+[node name="PlatformX4" parent="DinamicPlatforms" index="2" instance=ExtResource("4_ffeds")]
+position = Vector2(3146, -518)
+script = ExtResource("6_u7hq6")
+
+[node name="PlatformX5" parent="DinamicPlatforms" index="3" instance=ExtResource("4_ffeds")]
+position = Vector2(3346, -518)
+script = ExtResource("6_u7hq6")
+
+[node name="ControlPoint2" parent="ControlPoints" index="1" instance=ExtResource("7_d1odd")]
+position = Vector2(1923, -816)
+
+[node name="ChanceItem" parent="ItemsManager" index="0" instance=ExtResource("8_4rahl")]
+position = Vector2(311, -484)
+
+[node name="ChanceItem2" parent="ItemsManager" index="1" instance=ExtResource("8_4rahl")]
+position = Vector2(1107, -798)
+
+[node name="WinZone" parent="Zones" index="0"]
+position = Vector2(4041, -689)

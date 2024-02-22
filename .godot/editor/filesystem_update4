@@ -1,0 +1,10 @@
+res://scenes/ui/home.tscn
+res://themes/theme.tres
+res://globals/shortcuts/dog.tres
+res://globals/shortcuts/quit.tres
+res://globals/shortcuts/restart.tres
+res://scenes/levels/level_5.tscn
+res://scenes/players/player.tscn
+res://scenes/levels/level_3.tscn
+res://scenes/levels/level.tscn
+res://scenes/managers/items_manager.tscn

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0q3lx58v373r"]
+
+[ext_resource type="PackedScene" uid="uid://baf4nrswdg4wl" path="res://scenes/zones/zone.tscn" id="1_55g4r"]
+[ext_resource type="Script" path="res://scenes/zones/portal_zone.gd" id="2_a0jcl"]
+
+[node name="PortalZone" instance=ExtResource("1_55g4r")]
+script = ExtResource("2_a0jcl")
+
+[node name="ColorRect" parent="." index="1"]
+color = Color(0.670588, 0.129412, 1, 1)
+
+[connection signal="body_entered" from="." to="." method="teleport"]

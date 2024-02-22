@@ -1,0 +1,4 @@
+Shortcut
+JSON
+Resource
+Theme

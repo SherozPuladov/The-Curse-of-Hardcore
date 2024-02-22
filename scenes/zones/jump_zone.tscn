@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxbo4diguj7te"]
+
+[ext_resource type="PackedScene" uid="uid://baf4nrswdg4wl" path="res://scenes/zones/zone.tscn" id="1_o6t5h"]
+[ext_resource type="Script" path="res://scenes/zones/jump_zone.gd" id="2_0mw8b"]
+
+[node name="JumpZone" instance=ExtResource("1_o6t5h")]
+script = ExtResource("2_0mw8b")
+
+[node name="ColorRect" parent="." index="1"]
+color = Color(0, 1, 1, 1)
+
+[connection signal="body_entered" from="." to="." method="jump_velocity_up"]
+[connection signal="body_exited" from="." to="." method="jump_velocity_down"]

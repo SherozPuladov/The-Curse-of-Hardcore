@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8r532rhglb0c"]
+
+[ext_resource type="PackedScene" uid="uid://dhw8iwse5n0ex" path="res://scenes/items/item_texture.tscn" id="1_64rr3"]
+[ext_resource type="Script" path="res://scenes/items/item.gd" id="1_cj842"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftbw3"]
+size = Vector2(30, 30)
+
+[node name="Item" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_cj842")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ftbw3")
+
+[node name="ItemTexture" parent="." instance=ExtResource("1_64rr3")]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

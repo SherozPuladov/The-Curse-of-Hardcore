@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://denngdfhy6j2j"]
+
+[ext_resource type="PackedScene" uid="uid://doqvmh5mco84w" path="res://scenes/platforms/platform.tscn" id="1_sgspy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vx5p"]
+size = Vector2(540, 60)
+
+[node name="PlatformX9" instance=ExtResource("1_sgspy")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_8vx5p")
+
+[node name="PlatformTexture" parent="." index="1"]
+offset_left = -270.0
+offset_right = -216.0

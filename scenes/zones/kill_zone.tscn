@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3fifv4hwe78h"]
+
+[ext_resource type="PackedScene" uid="uid://baf4nrswdg4wl" path="res://scenes/zones/zone.tscn" id="1_qptmj"]
+[ext_resource type="Script" path="res://scenes/zones/kill_zone.gd" id="2_mbn74"]
+
+[node name="KillZone" instance=ExtResource("1_qptmj")]
+z_index = 2
+script = ExtResource("2_mbn74")
+
+[node name="ColorRect" parent="." index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.909804, 0, 0.121569, 1)
+
+[connection signal="body_entered" from="." to="." method="kill"]

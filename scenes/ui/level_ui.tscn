@@ -1,0 +1,310 @@
+[gd_scene load_steps=10 format=3 uid="uid://pg6qnmttsao8"]
+
+[ext_resource type="Script" path="res://scenes/ui/level_ui.gd" id="1_0tax1"]
+[ext_resource type="Script" path="res://scenes/ui/show_message.gd" id="2_dktxv"]
+[ext_resource type="Texture2D" uid="uid://db2xp8o6yh7h8" path="res://graphics/menu.png" id="2_hyg52"]
+[ext_resource type="Theme" uid="uid://dope7mmsbr5d7" path="res://themes/theme.tres" id="3_b63ln"]
+[ext_resource type="Shortcut" uid="uid://cip0tu57egprd" path="res://globals/shortcuts/restart.tres" id="4_eljxq"]
+[ext_resource type="PackedScene" uid="uid://1e0j6q7o5w03" path="res://scenes/ui/button.tscn" id="4_qjsp1"]
+[ext_resource type="PackedScene" uid="uid://7cftnm4wk3jl" path="res://scenes/ui/home_button.tscn" id="7_4yksc"]
+[ext_resource type="PackedScene" uid="uid://bainbe0no0gdg" path="res://scenes/ui/quit_button.tscn" id="8_0mmg2"]
+[ext_resource type="FontFile" uid="uid://eniohw5hq2ea" path="res://graphics/fonts/static/Montserrat-Light.ttf" id="9_4dchg"]
+
+[node name="LevelUI" type="CanvasLayer" node_paths=PackedStringArray("chance_label", "double_jump_label", "show_message")]
+process_mode = 3
+script = ExtResource("1_0tax1")
+chance_label = NodePath("ItemsPanel/ChanceLabel")
+double_jump_label = NodePath("ItemsPanel/DoubleJumpLabel")
+show_message = NodePath("ShowMessageLabel")
+
+[node name="ItemsPanel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChanceLabel" type="Label" parent="ItemsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 19.0
+offset_top = 2.0
+offset_right = 219.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_4dchg")
+theme_override_font_sizes/font_size = 32
+text = "6"
+vertical_alignment = 1
+
+[node name="ChanceColorRect" type="ColorRect" parent="ItemsPanel"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 14.0
+offset_bottom = 42.0
+grow_horizontal = 2
+color = Color(1, 1, 0, 1)
+
+[node name="DoubleJumpLabel" type="Label" parent="ItemsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -217.0
+offset_top = 2.0
+offset_right = -17.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_4dchg")
+theme_override_font_sizes/font_size = 32
+text = "6"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DoubleJumpColorRect" type="ColorRect" parent="ItemsPanel"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -13.0
+offset_top = 10.0
+offset_right = -1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+color = Color(0, 1, 1, 1)
+
+[node name="PauseButton" type="Button" parent="ItemsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 0
+icon = ExtResource("2_hyg52")
+expand_icon = true
+
+[node name="LosePanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LosePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.744268, 0.1352, 0.0652089, 1)
+theme_override_fonts/font = ExtResource("9_4dchg")
+theme_override_font_sizes/font_size = 52
+text = "LOSER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton2" parent="LosePanel" instance=ExtResource("4_qjsp1")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -80.0
+offset_right = 350.0
+offset_bottom = -30.0
+grow_horizontal = 1
+grow_vertical = 0
+shortcut = ExtResource("4_eljxq")
+text = "RESTART"
+
+[node name="HomeButton" parent="LosePanel" instance=ExtResource("7_4yksc")]
+layout_mode = 1
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -80.0
+offset_right = -50.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="QuitButton" parent="LosePanel" instance=ExtResource("8_0mmg2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WinPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WinPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.513726, 0.807843, 0, 1)
+theme_override_fonts/font = ExtResource("9_4dchg")
+theme_override_font_sizes/font_size = 52
+text = "WINNER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" parent="WinPanel" instance=ExtResource("4_qjsp1")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -80.0
+offset_right = 350.0
+offset_bottom = -30.0
+grow_horizontal = 1
+grow_vertical = 0
+shortcut = ExtResource("4_eljxq")
+text = "RESTART"
+
+[node name="HomeButton" parent="WinPanel" instance=ExtResource("7_4yksc")]
+layout_mode = 1
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -80.0
+offset_right = -50.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="QuitButton" parent="WinPanel" instance=ExtResource("8_0mmg2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PausePanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" parent="PausePanel" instance=ExtResource("4_qjsp1")]
+layout_mode = 1
+shortcut = ExtResource("4_eljxq")
+text = "CONTINUE"
+
+[node name="RestartButton" parent="PausePanel" instance=ExtResource("4_qjsp1")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -80.0
+offset_right = 350.0
+offset_bottom = -30.0
+grow_horizontal = 1
+grow_vertical = 0
+text = "RESTART"
+
+[node name="HomeButton" parent="PausePanel" instance=ExtResource("7_4yksc")]
+layout_mode = 1
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -80.0
+offset_right = -50.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="QuitButton" parent="PausePanel" instance=ExtResource("8_0mmg2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ShowMessageLabel" type="Label" parent="." node_paths=PackedStringArray("timer")]
+offset_left = 50.0
+offset_top = 25.0
+offset_right = 203.0
+offset_bottom = 85.0
+theme = ExtResource("3_b63ln")
+theme_override_fonts/font = ExtResource("9_4dchg")
+theme_override_font_sizes/font_size = 28
+text = "U r idiot"
+vertical_alignment = 1
+uppercase = true
+script = ExtResource("2_dktxv")
+timer = NodePath("Timer")
+appear_color = Color(1, 1, 1, 1)
+disappear_color = Color(1, 1, 1, 0)
+
+[node name="Timer" type="Timer" parent="ShowMessageLabel"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="ItemsPanel/PauseButton" to="." method="pause_button"]
+[connection signal="pressed" from="ItemsPanel/PauseButton" to="." method="show_pause_panel"]
+[connection signal="pressed" from="LosePanel/RestartButton2" to="." method="reload_scene"]
+[connection signal="pressed" from="WinPanel/RestartButton" to="." method="reload_scene"]
+[connection signal="pressed" from="PausePanel/ContinueButton" to="." method="continue_game_emit"]
+[connection signal="pressed" from="PausePanel/RestartButton" to="." method="reload_scene"]

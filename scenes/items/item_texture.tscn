@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhw8iwse5n0ex"]
+
+[ext_resource type="Texture2D" uid="uid://be1gb1ldr7cw8" path="res://graphics/square.png" id="1_ps3t0"]
+
+[node name="ItemTexture" type="NinePatchRect"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = -24.0
+offset_bottom = -24.0
+scale = Vector2(10, 10)
+texture = ExtResource("1_ps3t0")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

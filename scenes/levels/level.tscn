@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://3moengqmkc0t"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ct1jo"]
+[ext_resource type="PackedScene" uid="uid://dj3dbk2qn4f2l" path="res://scenes/players/player.tscn" id="2_cyt38"]
+[ext_resource type="PackedScene" uid="uid://cgsxvkmshx0f" path="res://scenes/managers/control_points.tscn" id="6_jbtut"]
+[ext_resource type="PackedScene" uid="uid://chh2sw5ylscnd" path="res://scenes/managers/items_manager.tscn" id="7_qm1v4"]
+[ext_resource type="PackedScene" uid="uid://bb5vecrggom70" path="res://scenes/objects/control_point.tscn" id="8_wqmtr"]
+[ext_resource type="PackedScene" uid="uid://pg6qnmttsao8" path="res://scenes/ui/level_ui.tscn" id="10_cs4uj"]
+[ext_resource type="PackedScene" uid="uid://c85n2ulisxbxe" path="res://scenes/zones/win_zone.tscn" id="12_daiq7"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("control_points", "items_manager", "player")]
+process_mode = 3
+script = ExtResource("1_ct1jo")
+control_points = NodePath("ControlPoints")
+items_manager = NodePath("ItemsManager")
+player = NodePath("Player")
+
+[node name="StaticPlatforms" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="DinamicPlatforms" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="ControlPoints" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("6_jbtut")]
+process_mode = 1
+respawn_point = NodePath("ControlPoint")
+
+[node name="ControlPoint" parent="ControlPoints" instance=ExtResource("8_wqmtr")]
+
+[node name="ItemsManager" parent="." instance=ExtResource("7_qm1v4")]
+process_mode = 1
+
+[node name="Zones" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="WinZone" parent="Zones" node_paths=PackedStringArray("level") instance=ExtResource("12_daiq7")]
+level = NodePath("../..")
+
+[node name="Player" parent="." node_paths=PackedStringArray("items_manager") instance=ExtResource("2_cyt38")]
+process_mode = 1
+items_manager = NodePath("../ItemsManager")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_bottom = 300
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="LevelUI" parent="." instance=ExtResource("10_cs4uj")]
+
+[connection signal="continue_game_emit" from="." to="LevelUI" method="show_items_panel"]
+[connection signal="pause_game" from="." to="LevelUI" method="show_pause_panel"]
+[connection signal="player_is_dead" from="." to="Player" method="kill"]
+[connection signal="player_is_dead" from="." to="LevelUI" method="show_lose_panel"]
+[connection signal="player_won" from="." to="Player" method="kill"]
+[connection signal="player_won" from="." to="LevelUI" method="show_win_panel"]
+[connection signal="update_label" from="ItemsManager" to="LevelUI" method="update_item_label"]
+[connection signal="respawn_player" from="Player" to="." method="respawn"]
+[connection signal="send_cause_of_dead_message" from="Player" to="LevelUI" method="cause_of_dead"]
+[connection signal="continue_game" from="LevelUI" to="." method="continue_game"]
+[connection signal="exit_game" from="LevelUI" to="." method="quit_game"]
+[connection signal="reload_level" from="LevelUI" to="." method="restart"]
+[connection signal="suicide" from="LevelUI" to="." method="respawn"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b42qhgguoymh2"]
+
+[ext_resource type="PackedScene" uid="uid://c8r532rhglb0c" path="res://scenes/items/item.tscn" id="1_s1b22"]
+
+[node name="ChanceItem" instance=ExtResource("1_s1b22")]
+
+[node name="ItemTexture" parent="." index="1"]
+modulate = Color(1, 1, 0, 1)

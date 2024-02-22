@@ -1,0 +1,486 @@
+[gd_scene load_steps=25 format=3 uid="uid://bjthojmywvwk1"]
+
+[ext_resource type="Theme" uid="uid://dope7mmsbr5d7" path="res://themes/theme.tres" id="1_b7j45"]
+[ext_resource type="Script" path="res://scenes/ui/home.gd" id="1_k5bxq"]
+[ext_resource type="PackedScene" uid="uid://jyh5apkp61cd" path="res://scenes/interactions/moving_platform.tscn" id="2_ehpki"]
+[ext_resource type="Texture2D" uid="uid://be1gb1ldr7cw8" path="res://graphics/square.png" id="2_rwh6i"]
+[ext_resource type="PackedScene" uid="uid://cg1shbf0mgcp4" path="res://scenes/interactions/rotating_platform.tscn" id="3_nut3h"]
+[ext_resource type="Script" path="res://scenes/interactions/rotating_platform.gd" id="4_j5e8k"]
+[ext_resource type="PackedScene" uid="uid://b3fifv4hwe78h" path="res://scenes/zones/kill_zone.tscn" id="5_d38qb"]
+[ext_resource type="PackedScene" uid="uid://cgsxvkmshx0f" path="res://scenes/managers/control_points.tscn" id="6_w0kbp"]
+[ext_resource type="PackedScene" uid="uid://bb5vecrggom70" path="res://scenes/objects/control_point.tscn" id="7_m30ls"]
+[ext_resource type="PackedScene" uid="uid://chh2sw5ylscnd" path="res://scenes/managers/items_manager.tscn" id="8_drsts"]
+[ext_resource type="PackedScene" uid="uid://dllu2yksgyyk1" path="res://scenes/items/double_jump_item.tscn" id="9_iaich"]
+[ext_resource type="PackedScene" uid="uid://b42qhgguoymh2" path="res://scenes/items/chance_item.tscn" id="10_6ks4e"]
+[ext_resource type="PackedScene" uid="uid://cmd6gv8hv25ix" path="res://scenes/zones/speed_zone.tscn" id="11_bpxag"]
+[ext_resource type="PackedScene" uid="uid://c85n2ulisxbxe" path="res://scenes/zones/win_zone.tscn" id="12_3r8v0"]
+[ext_resource type="PackedScene" uid="uid://bxbo4diguj7te" path="res://scenes/zones/jump_zone.tscn" id="13_e5w5p"]
+[ext_resource type="PackedScene" uid="uid://d0q3lx58v373r" path="res://scenes/zones/portal_zone.tscn" id="14_cjwg3"]
+[ext_resource type="PackedScene" uid="uid://cqhak16rg8p3f" path="res://scenes/zones/phantom_zone.tscn" id="15_yhxrk"]
+[ext_resource type="Script" path="res://scenes/ui/difficulty_option_button.gd" id="19_0pib1"]
+[ext_resource type="FontFile" uid="uid://eniohw5hq2ea" path="res://graphics/fonts/static/Montserrat-Light.ttf" id="19_87kuu"]
+[ext_resource type="Shortcut" uid="uid://dadrp3mg3rs3u" path="res://globals/shortcuts/dog.tres" id="20_057qm"]
+[ext_resource type="PackedScene" uid="uid://1e0j6q7o5w03" path="res://scenes/ui/button.tscn" id="20_etcyi"]
+[ext_resource type="PackedScene" uid="uid://bainbe0no0gdg" path="res://scenes/ui/quit_button.tscn" id="21_t701g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_073h0"]
+size = Vector2(551, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss3t0"]
+size = Vector2(130, 60)
+
+[node name="Home" type="Node2D"]
+script = ExtResource("1_k5bxq")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="StaticPlatforms" type="Node2D" parent="Background"]
+process_mode = 1
+
+[node name="Platform" type="StaticBody2D" parent="Background/StaticPlatforms"]
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/StaticPlatforms/Platform"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -274.0
+offset_top = 49.0
+offset_right = -219.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticPlatforms/Platform"]
+position = Vector2(1.5, 78)
+shape = SubResource("RectangleShape2D_073h0")
+
+[node name="Platform2" type="StaticBody2D" parent="Background/StaticPlatforms"]
+position = Vector2(624, 0)
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/StaticPlatforms/Platform2"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -274.0
+offset_top = 49.0
+offset_right = -219.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticPlatforms/Platform2"]
+position = Vector2(1.5, 78)
+shape = SubResource("RectangleShape2D_073h0")
+
+[node name="Platform3" type="StaticBody2D" parent="Background/StaticPlatforms"]
+position = Vector2(550, 257)
+rotation = -1.5708
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/StaticPlatforms/Platform3"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticPlatforms/Platform3"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="Platform4" type="StaticBody2D" parent="Background/StaticPlatforms"]
+position = Vector2(1081, -4)
+rotation = -3.14159
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/StaticPlatforms/Platform4"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticPlatforms/Platform4"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="Platform5" type="StaticBody2D" parent="Background/StaticPlatforms"]
+position = Vector2(-246, 231)
+rotation = -2.35619
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/StaticPlatforms/Platform5"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = 148.0
+offset_top = 49.0
+offset_right = 161.0
+offset_bottom = 55.0
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticPlatforms/Platform5"]
+position = Vector2(213, 79)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="DinamicPlatforms" type="Node2D" parent="Background"]
+process_mode = 1
+
+[node name="MovingPlatform" parent="Background/DinamicPlatforms" node_paths=PackedStringArray("platform", "movement_markers") instance=ExtResource("2_ehpki")]
+position = Vector2(325, -179)
+rotation = -3.14159
+can_rotate = false
+moving_time = 2.0
+platform = NodePath("Platform5")
+movement_markers = NodePath("Markers")
+
+[node name="Platform5" type="StaticBody2D" parent="Background/DinamicPlatforms/MovingPlatform"]
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/DinamicPlatforms/MovingPlatform/Platform5"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DinamicPlatforms/MovingPlatform/Platform5"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="Markers" type="Node2D" parent="Background/DinamicPlatforms/MovingPlatform"]
+
+[node name="Marker2D" type="Marker2D" parent="Background/DinamicPlatforms/MovingPlatform/Markers"]
+position = Vector2(-216, -23.9994)
+
+[node name="Marker2D2" type="Marker2D" parent="Background/DinamicPlatforms/MovingPlatform/Markers"]
+position = Vector2(227, 104.999)
+
+[node name="Marker2D3" type="Marker2D" parent="Background/DinamicPlatforms/MovingPlatform/Markers"]
+position = Vector2(-208.999, 242.001)
+
+[node name="RotationPlatform" parent="Background/DinamicPlatforms" instance=ExtResource("3_nut3h")]
+position = Vector2(836, -286)
+rotation_velocity = 5.0
+
+[node name="Platform6" type="StaticBody2D" parent="Background/DinamicPlatforms/RotationPlatform"]
+position = Vector2(3, -1)
+rotation = 2.87979
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/DinamicPlatforms/RotationPlatform/Platform6"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.3577
+offset_top = -30.6572
+offset_right = -51.3577
+offset_bottom = -24.6572
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DinamicPlatforms/RotationPlatform/Platform6"]
+position = Vector2(0.642242, -0.657188)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="Platform7" type="StaticBody2D" parent="Background/DinamicPlatforms/RotationPlatform"]
+position = Vector2(-7, -34)
+rotation = 4.45059
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/DinamicPlatforms/RotationPlatform/Platform7"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.3577
+offset_top = -30.6572
+offset_right = -51.3577
+offset_bottom = -24.6572
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DinamicPlatforms/RotationPlatform/Platform7"]
+position = Vector2(0.642242, -0.657188)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="RotatingPlatform" parent="Background/DinamicPlatforms" instance=ExtResource("3_nut3h")]
+position = Vector2(-314, -132)
+
+[node name="Platform6" type="StaticBody2D" parent="Background/DinamicPlatforms/RotatingPlatform"]
+position = Vector2(215, 0)
+rotation = -3.14159
+collision_layer = 2
+script = ExtResource("4_j5e8k")
+rotation_velocity = -1.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/DinamicPlatforms/RotatingPlatform/Platform6"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DinamicPlatforms/RotatingPlatform/Platform6"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="KillZone" parent="Background/DinamicPlatforms/RotatingPlatform/Platform6" instance=ExtResource("5_d38qb")]
+position = Vector2(0.999894, -41)
+rotation = 3.14159
+scale = Vector2(2, 0.3)
+
+[node name="Platform7" type="StaticBody2D" parent="Background/DinamicPlatforms/RotatingPlatform"]
+position = Vector2(-185, -3)
+rotation = -3.14159
+collision_layer = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background/DinamicPlatforms/RotatingPlatform/Platform7"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -64.0001
+offset_top = -30.0002
+offset_right = -51.0001
+offset_bottom = -24.0002
+scale = Vector2(10, 10)
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DinamicPlatforms/RotatingPlatform/Platform7"]
+position = Vector2(0.999924, -0.000167847)
+shape = SubResource("RectangleShape2D_ss3t0")
+
+[node name="ControlPoints" parent="Background" instance=ExtResource("6_w0kbp")]
+process_mode = 1
+
+[node name="ControlPoint" parent="Background/ControlPoints" instance=ExtResource("7_m30ls")]
+
+[node name="ControlPoint2" parent="Background/ControlPoints" instance=ExtResource("7_m30ls")]
+position = Vector2(863, -163)
+
+[node name="ItemsManager" parent="Background" instance=ExtResource("8_drsts")]
+process_mode = 1
+
+[node name="DoubleJumpItem" parent="Background/ItemsManager" instance=ExtResource("9_iaich")]
+position = Vector2(-289, -427)
+collision_layer = 1
+
+[node name="DoubleJumpItem2" parent="Background/ItemsManager" instance=ExtResource("9_iaich")]
+position = Vector2(625, -77)
+collision_layer = 1
+
+[node name="ChanceItem" parent="Background/ItemsManager" instance=ExtResource("10_6ks4e")]
+position = Vector2(861, -180)
+collision_layer = 1
+
+[node name="Zones" type="Node2D" parent="Background"]
+process_mode = 1
+
+[node name="SpeedZone" parent="Background/Zones" instance=ExtResource("11_bpxag")]
+position = Vector2(40, -390)
+scale = Vector2(3, 1)
+
+[node name="WinZone" parent="Background/Zones" instance=ExtResource("12_3r8v0")]
+position = Vector2(827, -482)
+
+[node name="JumpZone" parent="Background/Zones" instance=ExtResource("13_e5w5p")]
+position = Vector2(-68, 8)
+
+[node name="PortalZone" parent="Background/Zones" instance=ExtResource("14_cjwg3")]
+position = Vector2(-479, -367)
+
+[node name="PhantomZone" parent="Background/Zones" instance=ExtResource("15_yhxrk")]
+position = Vector2(-445, 32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(309, -189)
+
+[node name="HomeUI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="HomeUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -650.0
+offset_top = 25.0
+offset_right = -50.0
+offset_bottom = 85.0
+grow_horizontal = 0
+theme = ExtResource("1_b7j45")
+theme_override_font_sizes/font_size = 38
+text = "THE CURSE OF HARDCORE"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="HomeUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -590.0
+offset_top = 25.0
+offset_right = -390.0
+offset_bottom = 85.0
+grow_horizontal = 2
+theme = ExtResource("1_b7j45")
+theme_override_font_sizes/font_size = 28
+text = "DIFFICULTY:"
+vertical_alignment = 1
+
+[node name="Footer" type="Label" parent="HomeUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -85.0
+offset_right = 155.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_b7j45")
+theme_override_font_sizes/font_size = 28
+text = "© 2024 SiLLy DIGITALS"
+vertical_alignment = 1
+
+[node name="DifficultyOptionButton" type="OptionButton" parent="HomeUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -390.0
+offset_top = -690.0
+offset_right = -90.0
+offset_bottom = -640.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("19_87kuu")
+theme_override_font_sizes/font_size = 24
+alignment = 1
+text_overrun_behavior = 1
+clip_text = true
+script = ExtResource("19_0pib1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HomeUI/DifficultyOptionButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HomeUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -590.0
+offset_top = -250.0
+offset_right = 590.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HomeUI/ScrollContainer"]
+layout_mode = 2
+
+[node name="QuitButton" parent="HomeUI" instance=ExtResource("21_t701g")]
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -80.0
+offset_right = -50.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="MoreButton" parent="HomeUI" instance=ExtResource("20_etcyi")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -80.0
+offset_right = 150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MORE"
+
+[node name="DogCheckBox" type="CheckButton" parent="HomeUI"]
+visible = false
+offset_left = 50.0
+offset_top = 640.0
+offset_right = 350.0
+offset_bottom = 690.0
+theme = ExtResource("1_b7j45")
+theme_override_fonts/font = ExtResource("19_87kuu")
+theme_override_font_sizes/font_size = 28
+button_pressed = true
+shortcut = ExtResource("20_057qm")
+text = "DOG"
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HomeUI/DogCheckBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rwh6i")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[connection signal="item_selected" from="HomeUI/DifficultyOptionButton" to="HomeUI/DifficultyOptionButton" method="_on_item_selected"]

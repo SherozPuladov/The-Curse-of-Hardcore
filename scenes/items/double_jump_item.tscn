@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dllu2yksgyyk1"]
+
+[ext_resource type="PackedScene" uid="uid://c8r532rhglb0c" path="res://scenes/items/item.tscn" id="1_qrhsp"]
+
+[node name="DoubleJumpItem" instance=ExtResource("1_qrhsp")]
+item = "double_jump"
+
+[node name="ItemTexture" parent="." index="1"]
+modulate = Color(0, 1, 1, 1)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmd6gv8hv25ix"]
+
+[ext_resource type="PackedScene" uid="uid://baf4nrswdg4wl" path="res://scenes/zones/zone.tscn" id="1_eemr8"]
+[ext_resource type="Script" path="res://scenes/zones/speed_zone.gd" id="2_1r253"]
+
+[node name="SpeedZone" instance=ExtResource("1_eemr8")]
+script = ExtResource("2_1r253")
+
+[node name="ColorRect" parent="." index="1"]
+color = Color(0.917647, 0.756863, 0, 1)
+
+[connection signal="body_entered" from="." to="." method="speed_up"]
+[connection signal="body_exited" from="." to="." method="speed_down"]

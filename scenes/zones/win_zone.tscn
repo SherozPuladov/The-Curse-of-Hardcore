@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c85n2ulisxbxe"]
+
+[ext_resource type="PackedScene" uid="uid://baf4nrswdg4wl" path="res://scenes/zones/zone.tscn" id="1_osodi"]
+[ext_resource type="Script" path="res://scenes/zones/win_zone.gd" id="2_v3yq1"]
+
+[node name="WinZone" instance=ExtResource("1_osodi")]
+script = ExtResource("2_v3yq1")
+
+[node name="ColorRect" parent="." index="1"]
+color = Color(0.239216, 0.984314, 0, 1)
+
+[connection signal="body_entered" from="." to="." method="player_entered"]

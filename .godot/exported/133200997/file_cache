@@ -1,0 +1,11 @@
+res://scenes/interactions/moving_platform.tscn::0eb05515cecb73c7af9abd49bc7d604a::1706717266::res://.godot/exported/133200997/export-ad7fd4c7a14f4a6dfd67501897d82c66-moving_platform.scn
+res://scenes/interactions/rotating_platform.tscn::5ba3be8750c8a932c2a44e69a3a7d35b::1706717265::res://.godot/exported/133200997/export-7b31503bc19855dd16aad4f40aba271a-rotating_platform.scn
+res://scenes/items/item.tscn::094b9a344b411db5c303d522de1f65ab::1706717266::res://.godot/exported/133200997/export-7d0dc645e01189e9f3c0726961e11aca-item.scn
+res://scenes/items/item_texture.tscn::5a2a202c48bfdd180e29fcafa6d22b2a::1706634576::res://.godot/exported/133200997/export-2a62604f8564c27a40ac939613b4d845-item_texture.scn
+res://scenes/levels/level.tscn::57ecb3d34b507d3e7f31ff1697c76d90::1706717265::res://.godot/exported/133200997/export-d2f84246acaf0198009608664807e4e4-level.scn
+res://scenes/managers/control_points.tscn::b0a59bb643254a967c756eefde9248e7::1706717266::res://.godot/exported/133200997/export-2873232f588cbd41bfc06bc37de1f779-control_points.scn
+res://scenes/managers/items_manager.tscn::0e0f5c192e908d5e227c06c28ca4be1b::1706717266::res://.godot/exported/133200997/export-6b97db1845d68f381adaf58864940791-items_manager.scn
+res://scenes/platforms/platform_texture.tscn::bcd814ad1aa7a80c2e9220b87f4d1dd0::1706594576::res://.godot/exported/133200997/export-65bbea9f26bf87f2345746617ccf7bcb-platform_texture.scn
+res://scenes/players/player.tscn::850f89d4acdba785d66c0e60dc53eefd::1706717265::res://.godot/exported/133200997/export-6f751aadbf6a5104fa23b4a10a1baca1-player.scn
+res://scenes/players/player_texture.tscn::5d5870dda840829970d3fdeca9f4aa42::1706594491::res://.godot/exported/133200997/export-a9080cea728f0e8d36632b03a118d620-player_texture.scn
+res://scenes/ui/level_ui.tscn::d1876a5e432b0a2dbc99d720398a6dcd::1706717266::res://.godot/exported/133200997/export-40c8cd37bc8c0e048ad0403486528c56-level_ui.scn

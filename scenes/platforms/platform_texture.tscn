@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dunhdjxrmast8"]
+
+[ext_resource type="Texture2D" uid="uid://be1gb1ldr7cw8" path="res://graphics/square.png" id="1_vypfi"]
+
+[node name="PlatformTexture" type="NinePatchRect"]
+modulate = Color(0.827451, 0.564706, 0.184314, 1)
+offset_left = -30.0
+offset_top = -30.0
+offset_right = -24.0
+offset_bottom = -24.0
+scale = Vector2(10, 10)
+texture = ExtResource("1_vypfi")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

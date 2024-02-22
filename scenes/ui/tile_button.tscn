@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccg4g78na4gew"]
+
+[ext_resource type="Texture2D" uid="uid://be1gb1ldr7cw8" path="res://graphics/square.png" id="1_7ti47"]
+[ext_resource type="Script" path="res://scenes/ui/tile_button.gd" id="1_40j3v"]
+[ext_resource type="FontFile" uid="uid://c3x85bp1bbxue" path="res://graphics/fonts/static/Montserrat-Black.ttf" id="2_i41gy"]
+[ext_resource type="Theme" uid="uid://dope7mmsbr5d7" path="res://themes/theme.tres" id="3_vnghf"]
+[ext_resource type="FontFile" uid="uid://remf4jsossrl" path="res://graphics/fonts/static/Montserrat-Bold.ttf" id="4_r4s36"]
+
+[node name="TileButton" type="Button"]
+custom_minimum_size = Vector2(250, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -390.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40j3v")
+
+[node name="Borders" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7ti47")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="BackgroundLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -25.0
+offset_right = 410.0
+offset_bottom = 135.0
+grow_vertical = 0
+rotation = -1.5708
+theme_override_colors/font_color = Color(0.196078, 0.196078, 0.196078, 1)
+theme_override_fonts/font = ExtResource("2_i41gy")
+theme_override_font_sizes/font_size = 62
+text = "CLASSIC"
+autowrap_mode = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 15.0
+offset_right = 108.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme = ExtResource("3_vnghf")
+theme_override_fonts/font = ExtResource("4_r4s36")
+text = "CLASSIC"
+horizontal_alignment = 2
+autowrap_mode = 2
