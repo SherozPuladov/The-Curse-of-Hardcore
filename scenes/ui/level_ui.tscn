@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://pg6qnmttsao8"]
+[gd_scene load_steps=11 format=3 uid="uid://pg6qnmttsao8"]
 
 [ext_resource type="Script" path="res://scenes/ui/level_ui.gd" id="1_0tax1"]
 [ext_resource type="Script" path="res://scenes/ui/show_message.gd" id="2_dktxv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dope7mmsbr5d7" path="res://themes/theme.tres" id="3_b63ln"]
 [ext_resource type="Shortcut" uid="uid://cip0tu57egprd" path="res://globals/shortcuts/restart.tres" id="4_eljxq"]
 [ext_resource type="PackedScene" uid="uid://1e0j6q7o5w03" path="res://scenes/ui/button.tscn" id="4_qjsp1"]
+[ext_resource type="Script" path="res://scenes/ui/fps_counter.gd" id="4_seuww"]
 [ext_resource type="PackedScene" uid="uid://7cftnm4wk3jl" path="res://scenes/ui/home_button.tscn" id="7_4yksc"]
 [ext_resource type="PackedScene" uid="uid://bainbe0no0gdg" path="res://scenes/ui/quit_button.tscn" id="8_0mmg2"]
 [ext_resource type="FontFile" uid="uid://eniohw5hq2ea" path="res://graphics/fonts/static/Montserrat-Light.ttf" id="9_4dchg"]
@@ -94,6 +95,12 @@ offset_bottom = 60.0
 grow_horizontal = 0
 icon = ExtResource("2_hyg52")
 expand_icon = true
+
+[node name="FPS" type="Label" parent="ItemsPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_seuww")
 
 [node name="LosePanel" type="Panel" parent="."]
 visible = false

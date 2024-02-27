@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cad5olljjb1om"]
+
+[ext_resource type="PackedScene" uid="uid://b42qhgguoymh2" path="res://scenes/items/chance_item.tscn" id="1_7luv6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ChanceItem" parent="." instance=ExtResource("1_7luv6")]
+scale = Vector2(10, 10)
+rotation_velocity = 0.0

@@ -1,3 +1,7 @@
+res://graphics
+res://Screenshots
+D:/Projects/The Curse of Hardcore/.buids
+res://
 res://globals/levels
 res://scenes/ui
 res://globals/shortcuts
@@ -8,8 +12,6 @@ res://themes
 res://scenes/platforms
 res://scenes/objects
 res://scenes/items
-C:/Godot/Projects/The Curse of Hardcore
-res://graphics
 res://scenes/managers
 res://scenes/interactions
 res://scenes/globals

@@ -8,3 +8,5 @@ res://scenes/players/player.tscn
 res://scenes/levels/level_3.tscn
 res://scenes/levels/level.tscn
 res://scenes/managers/items_manager.tscn
+res://scenes/items/chance_item.tscn
+res://scenes/ui/level_ui.tscn

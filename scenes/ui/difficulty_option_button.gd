@@ -10,8 +10,16 @@ var options = [
 func _ready():
 	for i in options:
 		add_item(i)
-	select(0)
-
+	
+	match(LevelGlobals.chance_count):
+		5:
+			select(0)
+		3:
+			select(1)
+		1:
+			select(2)
+		0:
+			select(3)
 
 
 func _on_item_selected(index):

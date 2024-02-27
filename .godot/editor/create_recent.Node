@@ -1,3 +1,5 @@
+Label
+Camera2D
 Marker2D
 Node2D
 NinePatchRect
@@ -6,9 +8,7 @@ CheckButton
 CheckBox
 RigidBody2D
 TextureRect
-Label
 OptionButton
 Panel
 HSeparator
 HBoxContainer
-ScrollContainer

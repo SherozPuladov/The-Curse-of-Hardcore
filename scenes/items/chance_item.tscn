@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c8r532rhglb0c" path="res://scenes/items/item.tscn" id="1_s1b22"]
 
 [node name="ChanceItem" instance=ExtResource("1_s1b22")]
+rotation = 0.785398
+
+[node name="CollisionShape2D" parent="." index="0"]
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="ItemTexture" parent="." index="1"]
 modulate = Color(1, 1, 0, 1)

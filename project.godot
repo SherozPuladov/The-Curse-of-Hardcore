@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="The Curse of Hardcore"
+config/description="Run me if you can XD"
 run/main_scene="res://scenes/ui/home.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-boot_splash/show_image=false
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Screenshots/Icon.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -27,6 +29,7 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -92,5 +95,5 @@ quit_game={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+viewport/hdr_2d=true
